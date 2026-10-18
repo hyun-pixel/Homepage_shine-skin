@@ -42,30 +42,40 @@
     image.onerror=fail;
     image.onload=()=>{
       try{
-        gl=canvas.getContext('webgl',{alpha:true,premultipliedAlpha:false,antialias:false,powerPreference:'low-power'});
+        gl=canvas.getContext('webgl',{alpha:true,premultipliedAlpha:true,antialias:false,powerPreference:'low-power'});
         if(!gl){fail();return;}
-        const vertex='attribute vec2 position;varying vec2 uv;void main(){uv=position*.5+.5;gl_Position=vec4(position,0.,1.);}';
-        const fragment=`precision mediump float;varying vec2 uv;
+        const vertex='attribute vec2 position;varying mediump vec2 uv;void main(){uv=position*.5+.5;gl_Position=vec4(position,0.,1.);}';
+        const fragment=`#ifdef GL_FRAGMENT_PRECISION_HIGH
+          precision highp float;
+          #else
+          precision mediump float;
+          #endif
+          varying mediump vec2 uv;
           uniform sampler2D picture;uniform vec2 imageSize;uniform vec2 sceneSize;uniform vec4 drops[6];
           void main(){
             vec2 point=vec2(uv.x,1.-uv.y)*sceneSize;vec2 offset=vec2(0.);float sheen=0.;float coverage=0.;
             for(int i=0;i<6;i++){
               if(drops[i].w>0.){
-                vec2 delta=point-drops[i].xy;float distance=length(delta);float age=drops[i].z;
+                // Normalize before length(): mediump can overflow when squaring pixel distances.
+                float span=max(sceneSize.x,sceneSize.y);vec2 delta=(point-drops[i].xy)/span;
+                float radial=length(delta);float distance=radial*span;float age=drops[i].z;
                 float front=14.+age*185.;float band=front-distance;
                 float fade=smoothstep(0.,.08,age)*(1.-smoothstep(.9,1.7,age));
                 float envelope=exp(-abs(band)*.027)*fade*drops[i].w;
-                float wave=sin(band*.115)*envelope;vec2 normal=delta/max(distance,1.);
+                float wave=sin(band*.115)*envelope;vec2 normal=delta/max(radial,1./span);
                 offset+=normal*wave*8.;sheen+=wave*(.10+dot(normal,vec2(-.6,-.8))*.055);
                 coverage=max(coverage,envelope*1.25);
               }
             }
+            float alpha=min(.88,coverage);
+            if(alpha<.004){gl_FragColor=vec4(0.);return;}
             float cover=max(sceneSize.x/imageSize.x,sceneSize.y/imageSize.y);vec2 size=imageSize*cover;
             vec2 samplePoint=(point+offset-(sceneSize-size)*.5)/size;
             vec3 color=texture2D(picture,samplePoint).rgb;
             float veil=.12*clamp(1.-point.x/(sceneSize.x*.62),0.,1.);
             color=mix(color,vec3(.859,.941,.973),veil)+vec3(sheen*.88,sheen*.97,sheen);
-            gl_FragColor=vec4(color,min(.88,coverage));
+            // Transparent pixels must contain no color, including behind backdrop-filter panes.
+            gl_FragColor=vec4(clamp(color,0.,1.)*alpha,alpha);
           }`;
         program=gl.createProgram();gl.attachShader(program,shader(gl.VERTEX_SHADER,vertex));gl.attachShader(program,shader(gl.FRAGMENT_SHADER,fragment));gl.linkProgram(program);
         if(!gl.getProgramParameter(program,gl.LINK_STATUS))throw new Error('Ripple program unavailable');
