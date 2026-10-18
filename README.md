@@ -16,6 +16,16 @@ python -m http.server 8080 --bind 127.0.0.1 --directory outputs
 
 별도 패키지 설치·환경변수·외부 API 연결은 필요하지 않습니다. 기존 작업용 미리보기의 54067 포트 대신 위 실행 예시는 8080 포트를 사용합니다.
 
+## Vercel 배포
+
+저장소 루트의 `vercel.json`에서 홈페이지가 있는 `outputs/shine-skin`을 공개 폴더로 지정합니다. 별도 빌드 과정은 없습니다. 배포 후 홈페이지는 도메인의 `/`에서 열리며 상품 상세는 `/#/products/SS08`처럼 이동합니다.
+
+Vercel 프로젝트의 **Settings → Build and Deployment**에서 **Root Directory**는 저장소 루트인 `.`으로 유지합니다. **Framework Preset**은 **Other**, **Build Command**는 빈 값, **Output Directory**는 `outputs/shine-skin`이며 이 세 값은 `vercel.json`에서 지정합니다. 설정 파일이 포함된 최신 커밋을 배포해야 적용됩니다.
+
+도메인 첫 화면이 404이고 `/outputs/shine-skin/index.html`만 열린다면 저장소 전체가 공개된 상태입니다. 위 공개 폴더 설정으로 홈페이지·이미지·영상·글꼴을 도메인 바로 아래에 배치할 수 있습니다. 기획 문서와 검수용 비교 화면은 홈페이지 공개 폴더 밖에 두며 로컬에서 확인합니다.
+
+Git 연동이 켜져 있으면 `main`에 푸시할 때 자동으로 재배포될 수 있습니다. 수동 재배포는 **Deployments → 최신 커밋의 배포 → ⋯ → Redeploy**에서 진행합니다. 배포 후 `/`, `/#/shop`, `/#/products/SS08`과 영상·이미지 로딩을 확인합니다.
+
 ## 구성
 
 - `outputs/shine-skin/`: 홈페이지 소스·이미지·영상·글꼴
