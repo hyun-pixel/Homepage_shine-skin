@@ -1,0 +1,27 @@
+# Secrets and machine-specific files
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pfx
+*.p12
+.DS_Store
+Thumbs.db
+*.log
+node_modules/
+.venv/
+__pycache__/
+
+# Local image originals, backups, tools, and intermediate captures
+.impeccable/review/
+work/*
+!work/build-review.ps1
+!work/test-hero-ripples.cjs
+!work/final-qa/
+work/final-qa/*
+!work/final-qa/check.cjs
+!work/final-qa/layouts.json
+!work/final-qa/functional.json
+!work/final-qa/source-checks.json
+!work/final-qa/detector.json

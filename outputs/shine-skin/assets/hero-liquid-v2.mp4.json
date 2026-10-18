@@ -1,0 +1,18 @@
+{
+  "origin": "Higgsfield / Kling v3.0 Pro",
+  "job_id": "d9e21711-d759-4e7f-b460-f783f725902f",
+  "model": "kling3_0",
+  "mode": "pro",
+  "requested_seconds": 6,
+  "actual_seconds": 6.041667,
+  "quoted_credits": 10.5,
+  "prompt": "Locked-camera seamless luxury cosmetics loop. Keep the exact two SHINE SKIN cosmetics, their labels, bottle geometry, silver cap, cushion hinge, framing and blue iris petal background unchanged. Only the crystal-clear WATER ribbon and suspended droplets move: a slow, smooth clockwise flowing spiral passes behind the serum bottle and across the foreground, with rippling liquid surface and moving refracted blue petal highlights, one graceful complete circulation over six seconds. Small droplets travel along the same curved orbital path and return to their initial positions. Fluid must visibly flow and change shape gently, not rotate as a rigid glass or chrome object. Restrained dimensional beauty campaign motion, tangible transparent water, bright blue light caustics, calm product hero shot. Keep products fixed, sharply readable and unobscured. No camera movement, zoom, cuts, new objects, extra products, morphing labels, swelling bottles, changes to lids, hands, overlay text or sound. Start and end on the supplied identical frame for a smooth endless loop.",
+  "input": "liquid-poster-v2.webp",
+  "processing": {
+    "codec": "H.264, yuv420p, 24fps, no audio, faststart",
+    "desktop": "960×960, FFmpeg Lanczos/CRF22, 2544183 bytes",
+    "mobile": "640×640, FFmpeg Lanczos/CRF23, 1273255 bytes",
+    "original": "1440×1440, 15468498 bytes; preserved in work/v2-originals/hero-liquid-source.mp4",
+    "transcode": "Both final renditions encoded directly from the original. Browser MediaRecorder experiment was rejected because its duration/frames were incorrect."
+  }
+}

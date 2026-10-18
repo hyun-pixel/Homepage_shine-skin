@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#e8f4f7">
+  <meta name="description" content="피부에 맞추고, 하루에 빛을 더하다. SHINE SKIN에서 피부 타입과 오늘의 일정에 맞는 루틴을 만나보세요.">
+  <meta name="robots" content="noindex, nofollow">
+  <title>SHINE SKIN — 피부에 맞추고, 하루에 빛을 더하다</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/SCDream3.otf" as="font" type="font/otf" crossorigin>
+  <link rel="preload" href="assets/iris-backdrop-v2.webp" as="image" fetchpriority="high">
+  <link rel="preload" href="assets/liquid-poster-v2.webp" as="image" fetchpriority="high">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="glass-v2.css?v=8.1">
+  <link rel="stylesheet" href="store.css?v=9.1">
+  <script src="app.js?v=9.1" defer></script>
+  <script src="liquid-scene.js" defer></script>
+  <script src="hero-ripples.js?v=8" defer></script>
+  <script src="store.js?v=9.1" defer></script>
+</head>
+<body>
+  <a href="#main" class="skip-link">본문으로 바로가기</a>
+  <svg aria-hidden="true" class="icon-definitions" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.5 5.5a5 5 0 0 0-7.1 0L12 6.9l-1.4-1.4a5 5 0 1 0-7.1 7.1L12 21l8.5-8.4a5 5 0 0 0 0-7.1Z"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 7h14l1 14H4L5 7Z"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 8h16M4 16h16"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14M12 5v14"/></symbol>
+    <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+    <symbol id="i-reset" viewBox="0 0 24 24"><path d="M4 10a8 8 0 1 1 1 8M4 4v6h6"/></symbol>
+    <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="m12 3 2.6 6.4L21 12l-6.4 2.6L12 21l-2.6-6.4L3 12l6.4-2.6L12 3Z"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 20V4m-6 6 6-6 6 6"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21v-2a8 8 0 0 1 16 0v2"/></symbol>
+    <symbol id="i-compare" viewBox="0 0 24 24"><path d="M8 4v16M16 4v16M3 9h10M11 15h10"/><circle cx="8" cy="9" r="2"/><circle cx="16" cy="15" r="2"/></symbol>
+    <symbol id="i-filter" viewBox="0 0 24 24"><path d="M3 6h18M6 12h12M9 18h6"/></symbol>
+  </svg>
+
+  <header class="site-header glass" id="site-header">
+    <a class="wordmark" href="#top" aria-label="SHINE SKIN 홈">SHINE SKIN<span class="logo-glint" aria-hidden="true"></span></a>
+    <nav class="desktop-nav" aria-label="주요 메뉴">
+      <a href="#/shop" data-nav-group="all">전체 제품</a>
+      <details class="nav-dropdown" data-nav-group="care" name="desktop-catalogue"><summary aria-controls="mega-care">스킨케어 <svg aria-hidden="true" class="icon icon-small"><use href="#i-down"/></svg></summary><div id="mega-care" class="mega-menu"></div></details>
+      <details class="nav-dropdown" data-nav-group="makeup" name="desktop-catalogue"><summary aria-controls="mega-makeup">메이크업 <svg aria-hidden="true" class="icon icon-small"><use href="#i-down"/></svg></summary><div id="mega-makeup" class="mega-menu"></div></details>
+      <details class="nav-dropdown" data-nav-group="sun" name="desktop-catalogue"><summary aria-controls="mega-sun">선케어 <svg aria-hidden="true" class="icon icon-small"><use href="#i-down"/></svg></summary><div id="mega-sun" class="mega-menu"></div></details>
+      <a href="#routine">나만의 루틴</a>
+      <a href="#brand">브랜드</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-button" data-panel="search" aria-label="제품 검색"><svg aria-hidden="true" class="icon"><use href="#i-search"/></svg></button>
+      <button class="icon-button desktop-action" data-panel="wishlist" aria-label="찜한 제품"><svg aria-hidden="true" class="icon"><use href="#i-heart"/></svg><span class="count-dot" id="wish-count" hidden>0</span></button>
+      <a class="icon-button desktop-action" href="#/account" aria-label="로그인 및 회원가입"><svg aria-hidden="true" class="icon"><use href="#i-user"/></svg></a>
+      <button class="icon-button" data-panel="cart" aria-label="장바구니"><svg aria-hidden="true" class="icon"><use href="#i-bag"/></svg><span class="count-dot" id="cart-count" hidden>0</span></button>
+      <button class="icon-button menu-toggle" data-panel="menu" aria-label="메뉴 열기" aria-expanded="false" aria-controls="panel"><svg aria-hidden="true" class="icon"><use href="#i-menu"/></svg></button>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-atmosphere" aria-hidden="true"></div>
+      <canvas id="hero-ripples" class="hero-ripples" aria-hidden="true" data-state="idle" hidden></canvas>
+      <div class="hero-layout container">
+        <div class="hero-copy">
+          <canvas id="liquid-light" class="glass-refraction" aria-hidden="true"></canvas>
+          <h1 id="hero-title">피부에 맞추고,<br>하루에 빛을 더하다.</h1>
+          <p>피부 타입과 오늘의 일정에 맞춰,<br>나만의 조합을 만나보세요.</p>
+          <div class="hero-ctas">
+            <a class="button button-primary" href="#routine">내 루틴 찾기 <svg aria-hidden="true" class="icon"><use href="#i-arrow"/></svg></a>
+            <button class="text-link" data-panel="collection">제품 둘러보기 <svg aria-hidden="true" class="icon icon-small"><use href="#i-arrow"/></svg></button>
+          </div>
+          <span class="hero-signature">YOUR SKIN. YOUR SHINE.</span>
+        </div>
+        <div class="hero-stage" id="hero-stage">
+          <div class="product-float"><img class="hero-art" src="assets/liquid-poster-v2.webp" width="1254" height="1254" alt="푸른 꽃잎을 배경으로 맑은 액체가 앞뒤를 감싸는 SHINE SKIN 세럼과 쿠션" fetchpriority="high" decoding="async"><video id="hero-video" class="hero-loop" muted loop playsinline preload="none" poster="assets/liquid-poster-v2.webp" data-src="assets/hero-liquid-v2.mp4" data-mobile-src="assets/hero-liquid-mobile-v2.mp4" disablepictureinpicture aria-hidden="true" tabindex="-1"></video></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="routine-section" id="routine" aria-labelledby="routine-title">
+      <div class="routine-halo" aria-hidden="true"></div>
+      <div class="container">
+        <div class="section-heading">
+          <h2 id="routine-title">나의 피부,<br><span>오늘의 루틴.</span></h2>
+          <p>피부가 원하는 것과 오늘 하고 싶은 것.<br>두 가지를 골라, 나다운 조합을 발견하세요.</p>
+        </div>
+        <div class="routine-glass glass">
+          <form id="routine-form" class="routine-form">
+            <fieldset>
+              <legend>나의 피부 타입은</legend>
+              <div class="choice-row skin-choices">
+                <label class="choice"><input type="radio" name="skin" value="dry" checked><span>건성</span></label>
+                <label class="choice"><input type="radio" name="skin" value="oily"><span>지성</span></label>
+                <label class="choice"><input type="radio" name="skin" value="combination"><span>복합성</span></label>
+                <label class="choice"><input type="radio" name="skin" value="normal"><span>중성</span></label>
+                <label class="choice choice-unsure"><input type="radio" name="skin" value="unsure"><span>잘 모르겠어요</span></label>
+              </div>
+            </fieldset>
+            <div class="form-divider" aria-hidden="true"></div>
+            <fieldset>
+              <legend>오늘의 계획은</legend>
+              <div class="choice-row occasion-choices">
+                <label class="choice"><input type="radio" name="occasion" value="work" checked><span>출근</span></label>
+                <label class="choice"><input type="radio" name="occasion" value="date"><span>데이트</span></label>
+                <label class="choice"><input type="radio" name="occasion" value="weekend"><span>주말 외출</span></label>
+                <label class="choice"><input type="radio" name="occasion" value="travel"><span>여행</span></label>
+                <label class="choice"><input type="radio" name="occasion" value="special"><span>특별한 약속</span></label>
+              </div>
+            </fieldset>
+            <button class="reset-button" type="reset">선택 초기화 <svg aria-hidden="true" class="icon icon-small"><use href="#i-reset"/></svg></button>
+          </form>
+          <div class="recommendation-heading">
+            <div><h3 id="result-title">촉촉하게 준비하고, 가볍게 빛나요.</h3><p class="result-context" id="result-context">건성 피부의 출근 루틴</p></div>
+            <span class="result-count">3개의 제품</span>
+          </div>
+          <div class="product-grid" id="product-grid" aria-label="추천 제품"></div>
+          <div class="routine-bottom"><p><svg aria-hidden="true" class="icon icon-small"><use href="#i-sparkle"/></svg> 선택한 피부 타입과 오늘의 계획을 바탕으로 추천한 조합이에요.</p><button class="text-link" data-panel="collection">다른 제품도 만나보기 <svg aria-hidden="true" class="icon icon-small"><use href="#i-arrow"/></svg></button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="collection-section section-space container" aria-labelledby="collection-title">
+      <div class="editorial-heading"><h2 id="collection-title">오늘의 나를 위한<br>작은 선택들.</h2><a class="text-link" href="#/shop">전체 제품 보기 <svg class="icon icon-small" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+      <div class="collection-layout">
+        <a class="collection-feature" href="#/shop?category=care"><div class="collection-copy"><h3>피부를 채우는 시간</h3><p>가벼운 수분부터 포근한 마무리까지.</p><span class="text-link">스킨케어 만나보기 <svg class="icon icon-small" aria-hidden="true"><use href="#i-arrow"/></svg></span></div><span class="product-pack pack-SS01" role="img" aria-label="듀 베일 토너"></span><span class="product-pack pack-SS05" role="img" aria-label="워터 젤 크림"></span></a>
+        <div class="collection-stack"><a class="collection-makeup" href="#/shop?category=makeup"><div class="collection-copy"><h3>빛을 더하는 터치</h3><p>자연스러운 윤기와 맑은 색.</p><span class="text-link">메이크업 만나보기 <svg class="icon icon-small" aria-hidden="true"><use href="#i-arrow"/></svg></span></div><span class="product-pack pack-SS11" role="img" aria-label="소프트 블룸 치크"></span></a><a class="collection-sun" href="#/shop?category=sun"><div class="collection-copy"><h3>가볍게, 문밖으로</h3><p>일상의 외출 준비에 한 단계.</p><span class="text-link">선케어 만나보기 <svg class="icon icon-small" aria-hidden="true"><use href="#i-arrow"/></svg></span></div><span class="product-pack pack-SS07" role="img" aria-label="데일리 베일 선케어"></span></a></div>
+      </div>
+    </section>
+
+    <section class="texture-section" aria-labelledby="texture-title"><div class="texture-photo"><img src="assets/texture-editorial.webp" width="1536" height="1024" alt="맑게 흐르는 워터 제형과 부드러운 진주빛 크림의 대비" loading="lazy" decoding="async"></div><div class="texture-copy"><h2 id="texture-title">피부에 닿는 순간,<br>취향이 되도록.</h2><p>맑게 스며드는 워터 제형.<br>부드럽게 감싸는 크림.<br>내가 좋아하는 감촉에서 루틴을 시작하세요.</p><div class="texture-options" role="group" aria-label="제형별 제품 보기"><a href="#/products/SS02">맑은 워터 세럼 <svg class="icon icon-small" aria-hidden="true"><use href="#i-arrow"/></svg></a><a href="#/products/SS04">포근한 리치 크림 <svg class="icon icon-small" aria-hidden="true"><use href="#i-arrow"/></svg></a></div></div></section>
+
+    <section class="brand-story" id="brand" aria-labelledby="brand-title"><div class="container"><section class="brand-page-hero"><div><h2 id="brand-title" tabindex="-1">각자의 피부.<br>각자의 빛.</h2><p>매일의 피부도, 매일의 계획도 조금씩 다르니까요.<br>SHINE SKIN은 피부에 맞는 케어와 오늘을 위한 메이크업을 함께 생각합니다.</p><a href="#routine" class="text-link">내 루틴 찾기 <svg class="icon icon-small" aria-hidden="true"><use href="#i-arrow"/></svg></a></div><img src="assets/liquid-poster-v2.webp" width="1254" height="1254" loading="lazy" alt="맑은 액체에 감싸인 세럼과 쿠션"></section><section class="brand-editorial"><img src="assets/texture-editorial.webp" width="1536" height="1024" alt="워터 감촉과 부드러운 크림, 맑은 컬러" loading="lazy"><div><h3>피부의 감촉에서,<br>하루의 표정까지.</h3><p>수분을 채우는 순간부터 맑은 색을 더하는 순간까지. 나에게 편안한 제형과 마무리로 나만의 조합을 만들어보세요.</p><p>나에게 편안한 감촉, 오늘의 취향에 맞는 빛. 피부 타입과 일상을 함께 살피는 이유입니다.</p></div></section><section class="brand-principles" aria-label="제품을 고르는 세 가지 기준"><div><h3>감촉에서 시작하기</h3><p>맑은 워터, 가벼운 로션, 포근한 크림. 피부 위에서 느끼고 싶은 감촉으로 골라보세요.</p></div><div><h3>하루에 맞춰 더하기</h3><p>출근부터 특별한 약속까지. 오늘의 계획과 어울리는 베이스와 컬러를 더해보세요.</p></div><div><h3>나란히 보고 고르기</h3><p>제형, 사용감, 용량과 가격을 투명하게. 내게 중요한 기준으로 비교해 보세요.</p></div></section><section class="brand-final"><h3>나의 피부, 오늘의 루틴.</h3><a class="button button-primary" href="#/shop">컬렉션 만나보기 <svg class="icon icon-small" aria-hidden="true"><use href="#i-arrow"/></svg></a></section></div></section>
+
+    <section class="help-section section-space container" id="help" aria-labelledby="help-title"><div><h2 id="help-title">조금 더<br>알고 싶다면.</h2><a class="text-link" href="#routine">내 루틴 찾기 <svg class="icon icon-small" aria-hidden="true"><use href="#i-arrow"/></svg></a></div><div class="faq-list"><details><summary>피부 타입을 잘 모르겠어요.<svg class="icon icon-small" aria-hidden="true"><use href="#i-plus"/></svg></summary><p>루틴에서 ‘잘 모르겠어요’를 골라보세요. 피부 타입을 정하지 않고도 제형과 오늘의 계획을 중심으로 제품을 살펴볼 수 있어요.</p></details><details><summary>비슷한 제품의 차이를 보고 싶어요.<svg class="icon icon-small" aria-hidden="true"><use href="#i-plus"/></svg></summary><p>제품의 ‘비교 담기’를 누르면 최대 3개 제품의 용량, 가격, 제형, 마무리와 추천 상황을 나란히 확인할 수 있어요.</p><a href="#/compare" class="text-link">비교함 열기</a></details><details><summary>마음에 드는 제품을 다시 찾을 수 있나요?<svg class="icon icon-small" aria-hidden="true"><use href="#i-plus"/></svg></summary><p>하트를 눌러 찜하거나 ‘최근 본 제품’을 확인해 보세요. 같은 브라우저에서 다시 볼 수 있어요.</p><a href="#/saved" class="text-link">나의 관심 제품 보기</a></details></div></section>
+  </main>
+
+  <main id="page-view" class="page-view" tabindex="-1" hidden></main>
+  <footer class="site-footer"><div class="container footer-top"><a class="footer-logo" href="#top">SHINE SKIN</a><p>피부에 맞추고,<br>하루에 빛을 더하다.</p><nav aria-label="하단 메뉴"><a href="#/shop">전체 제품</a><a href="#brand">브랜드 이야기</a><a href="#/compare">제품 비교</a><a href="#/saved">찜·최근 본 제품</a><a href="#/cart">장바구니</a><a href="#/account">로그인·회원가입</a></nav></div><div class="container footer-bottom"><span>© SHINE SKIN</span><span>YOUR SKIN. YOUR SHINE.</span><label class="motion-setting"><input id="reduce-motion" type="checkbox" role="switch"><span class="switch-track" aria-hidden="true"></span>움직임 줄이기</label><a href="#top" aria-label="페이지 맨 위로">맨 위로 <svg class="icon icon-small" aria-hidden="true"><use href="#i-up"/></svg></a></div></footer>
+  <div id="compare-dock" class="compare-dock glass" hidden></div>
+  <div id="mobile-purchase-bar" class="mobile-purchase-bar" hidden></div>
+  <dialog id="filter-dialog" class="filter-dialog" aria-labelledby="filter-title"><div class="panel-top"><h2 id="filter-title">필터</h2><button class="icon-button" data-close-filter aria-label="필터 닫기"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button></div><form id="filter-form"></form></dialog>
+  <dialog id="image-dialog" class="image-dialog" aria-label="제품 이미지 확대"><button class="icon-button" data-close-image aria-label="확대 이미지 닫기"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button><div id="zoom-content"></div></dialog>
+
+  <dialog id="panel" class="side-panel" aria-labelledby="panel-title"><div class="panel-top"><h2 id="panel-title">제품</h2><button class="icon-button" id="panel-close" aria-label="닫기"><svg aria-hidden="true" class="icon"><use href="#i-close"/></svg></button></div><div id="panel-body" class="panel-body"></div></dialog>
+  <dialog id="product-dialog" class="product-dialog" aria-labelledby="detail-title"><button class="icon-button detail-close" id="detail-close" aria-label="제품 정보 닫기"><svg aria-hidden="true" class="icon"><use href="#i-close"/></svg></button><div id="product-detail"></div></dialog>
+  <div class="toast glass" id="toast" role="status" aria-live="polite" hidden><svg aria-hidden="true" class="icon"><use href="#i-check"/></svg><span></span></div>
+  <span class="sr-only" role="status" id="result-announcement" aria-live="polite" aria-atomic="true"></span>
+</body>
+</html>

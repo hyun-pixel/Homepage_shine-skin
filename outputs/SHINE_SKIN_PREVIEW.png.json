@@ -1,0 +1,8 @@
+{
+  "origin": "Browser screenshot of the locally built SHINE SKIN comparison page",
+  "source": "http://127.0.0.1:54067/SHINE_SKIN_PREVIEW.html",
+  "capture": "Playwright / Windows Edge / 1440 x 1000 viewport / full-page / 2026-10-16",
+  "file": "SHINE_SKIN_PREVIEW.png",
+  "note": "Revision 3 actual browser comparison capture: separated hero title/video grid; hero product note and bottom controls removed. Live film available on the local preview.",
+  "revision": 3
+}
